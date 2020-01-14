@@ -1,7 +1,8 @@
 bp_install lua
 download http://www.inf.puc-rio.br/~roberto/lpeg/lpeg-1.0.2.tar.gz
 extract
+sed -i -e 25s@=@+=@ makefile
 make -f makefile
-mkdir "$BP_CURRENT_PKG/lib"
+mkdir -p "$BP_CURRENT_PKG/lib"
 cp lpeg.so "$BP_CURRENT_PKG/lib/liblpeg.so"
 link_to_root

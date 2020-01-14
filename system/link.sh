@@ -23,7 +23,7 @@ function link_to_root {
 				echo "#!/bin/bash" > "$script"
 				echo "LD_LIBRARY_PATH=\"$BP_BPFS_PATH/lib/\" \\" >> "$script"
 				echo "PKG_CONFIG_PATH=\"$BP_BPFS_PATH/lib/pkgconfig/\" \\" >> "$script"
-				echo "PATH==\"$BP_BIN_PATH:$PATH\" \\" >> "$script"
+				echo "PATH=\"$BP_BIN_PATH:\$PATH\" \\" >> "$script"
 				echo "$f \"\$@\"" >> "$script"
 				chmod +x "$script"
 			fi

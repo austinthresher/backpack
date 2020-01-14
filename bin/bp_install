@@ -29,9 +29,9 @@ else
 fi
 
 if [ -z "$LDFLAGS" ]; then
-	export LDFLAGS=$(ldlags)
+	export LDFLAGS=$(ldflags)
 else
-	export LDFLAGS=$(ldlags "$LDFLAGS")
+	export LDFLAGS=$(ldflags "$LDFLAGS")
 fi
 
 
