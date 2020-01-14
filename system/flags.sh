@@ -4,7 +4,7 @@ function configure_flags {
 	echo "--prefix=$BP_CURRENT_PKG"
 }
 
-export -f configure-flags
+export -f configure_flags
 
 function cflags {
 	echo "$@ -I$BP_BPFS_PATH/include -fPIC"

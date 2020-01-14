@@ -2,8 +2,9 @@
 
 function link_to_root {
 	cd "$BP_CURRENT_PKG"
-	for d in $(dirname $(find .)); do
-		mkdir -p "$BP_BPFS_PATH/$d"
+
+	for d in $(find .); do
+		mkdir -p "$BP_BPFS_PATH/$(dirname $d)"
 	done
 	for f in $(find .); do
 		if [ -f "$BP_CURRENT_PKG/$f" ]; then
