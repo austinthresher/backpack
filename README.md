@@ -24,7 +24,7 @@ source ~/.bpinit
 Now you can install any of the scripts in the `packages` directory like:
 
 ```
-bp-install neovim
+bp_install neovim
 ```
 
 Backpack will download and build neovim and its dependencies in
@@ -46,14 +46,14 @@ assist in common tasks:
 	- `extract`
 		- Extracts the last archive downloaded with `download` into a
 		  folder in `$BACKPACK/src/` with the name of the package
-	- `link-to-root`
+	- `link_to_root`
 		- All packages are installed to individual directories, then
 		  the contents of those directories are symlinked into
 		  `$BACKPACK/bpfs/`. Additionally, any files located in the
 		  `bin/` directory of the package are made callable from
 		  `$BACKPACK/bin/`. This should be the last line of nearly
 		  every package script.
-	- `configure-flags`
+	- `configure_flags`
 		- Expands to the flags to pass to configure to install into
 		  `$BACKPACK/pkg/<package-name>`. Any arguments passed to it
 		  are appended to the output.
@@ -63,6 +63,6 @@ assist in common tasks:
 		  appends them.
 
 In order to mark another package script as a prerequisite for the script
-you're writing, just call `bp-install <package-name>` at the top of your
+you're writing, just call `bp_install <package-name>` at the top of your
 script. If it isn't installed, it will be, and if it is, it will just print
 a message and continue.
