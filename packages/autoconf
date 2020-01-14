@@ -1,9 +1,9 @@
-bp-install sed
-bp-install grep
-bp-install m4
+bp_install sed
+bp_install grep
+bp_install m4
 download http://ftp.gnu.org/gnu/autoconf/autoconf-2.68.tar.gz
 extract
-./configure $(configure-flags)
+./configure $(configure_flags)
 make -j
 make -j install
-link-to-root
+link_to_root

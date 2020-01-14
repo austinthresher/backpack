@@ -1,8 +1,8 @@
-bp-install tar
-bp-install bzip
+bp_install tar
+bp_install bzip
 download https://gmplib.org/download/gmp/gmp-6.1.2.tar.bz2
 extract
-./configure $(configure-flags)
+./configure $(configure_flags)
 make -j
 make -j install
-link-to-root
+link_to_root

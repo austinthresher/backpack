@@ -1,7 +1,7 @@
-bp-install pcre
+bp_install pcre
 download https://geoff.greer.fm/ag/releases/the_silver_searcher-1.0.3.tar.gz
 extract
-./configure $(configure-flags --disable-lzma)
+./configure $(configure_flags --disable-lzma)
 make -j
 make -j install
-link-to-root
+link_to_root

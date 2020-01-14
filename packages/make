@@ -4,4 +4,4 @@ configure
 sed -i -e '211s/&&/&!/' "$BP_CURRENT_SRC/glob/glob.c"
 make -j
 make -j install
-link-to-root
+link_to_root

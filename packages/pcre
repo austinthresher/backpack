@@ -1,6 +1,6 @@
 download ftp://ftp.pcre.org/pub/pcre/pcre-8.43.tar.gz
 extract
-./configure $(configure-flags)
+./configure $(configure_flags)
 make -j
 make -j install
-link-to-root
+link_to_root

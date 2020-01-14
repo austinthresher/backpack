@@ -1,8 +1,8 @@
-bp-install gmp
-bp-install mpfr
+bp_install gmp
+bp_install mpfr
 download http://ftp.gnu.org/gnu/mpc/mpc-1.0.3.tar.gz
 extract
 configure --with-gmp="$BP_PKG_PATH/gmp/" --with-mpfr="$BP_PKG_PATH/mpfr"
 make -j
 make -j install
-link-to-root
+link_to_root

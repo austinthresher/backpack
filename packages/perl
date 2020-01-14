@@ -4,4 +4,4 @@ sed -i -e 1876d Configure
 configure -d -Dprefix=$BP_CURRENT_PKG
 make -j
 make -j install
-link-to-root
+link_to_root

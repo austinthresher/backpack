@@ -3,7 +3,8 @@
 export BP_BACKPACK_PATH="$HOME/.backpack"
 __BACKPACK_PATHS=( bin src pkg tar bpfs installed avail system )
 for p in ${__BACKPACK_PATHS[@]}; do
-	__VARNAME="BP_${p^^}_PATH"
+	__CAPS=$(echo $p | tr '[:lower:]' '[:upper:]')
+	__VARNAME="BP_${__CAPS}_PATH"
 	export "$__VARNAME=$BP_BACKPACK_PATH/$p"
 	mkdir -p "$BP_BACKPACK_PATH/$p"
 done

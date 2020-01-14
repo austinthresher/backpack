@@ -2,4 +2,4 @@ download https://www.lua.org/ftp/lua-5.2.4.tar.gz
 extract
 make posix
 make install INSTALL_TOP=$BP_CURRENT_PKG
-link-to-root
+link_to_root

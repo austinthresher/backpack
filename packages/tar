@@ -1,7 +1,7 @@
-bp-install sed
+bp_install sed
 download http://ftp.gnu.org/gnu/tar/tar-1.32.tar.gz
 extract
-./configure $(configure-flags)
+./configure $(configure_flags)
 make -j
 make -j install
-link-to-root
+link_to_root

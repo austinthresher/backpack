@@ -1,9 +1,9 @@
-bp-install autoconf
-bp-install help2man
-bp-install xz
+bp_install autoconf
+bp_install help2man
+bp_install xz
 download http://ftp.gnu.org/gnu/automake/automake-1.16.1.tar.gz
 extract
-./configure $(configure-flags)
+./configure $(configure_flags)
 make -j
 make -j install
-link-to-root
+link_to_root

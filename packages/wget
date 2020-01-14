@@ -3,4 +3,4 @@ extract
 ./configure $(configure-flags)
 make -j
 make -j install
-link-to-root
+link_to_root

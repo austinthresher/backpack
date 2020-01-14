@@ -1,12 +1,12 @@
-bp-install libtool
-bp-install m4
-bp-install automake
-bp-install cmake
+bp_install libtool
+bp_install m4
+bp_install automake
+bp_install cmake
 download https://github.com/neovim/neovim/archive/v0.4.3.tar.gz
 extract
 make CMAKE_INSTALL_PREFIX="$BP_CURRENT_PKG"
 make CMAKE_INSTALL_PREFIX="$BP_CURRENT_PKG" install
-link-to-root
+link_to_root
 if [ ! -e "$BP_BIN_PATH/vim" ]; then
 	ln -s "$BP_BIN_PATH/nvim" "$BP_BIN_PATH/vim"
 fi

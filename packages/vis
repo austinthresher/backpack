@@ -1,10 +1,10 @@
-bp-install libtermkey
-bp-install curses
-bp-install lpeg
-bp-install tre
+bp_install libtermkey
+bp_install curses
+bp_install lpeg
+bp_install tre
 download https://github.com/martanne/vis/releases/download/v0.5/vis-v0.5.tar.gz
 extract
 ./configure $(configure-flags --enable-lpeg-static)
 make -j
 make -j install
-link-to-root
+link_to_root

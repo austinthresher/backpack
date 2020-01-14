@@ -1,5 +1,5 @@
 download http://ftp.gnu.org/gnu/diffutils/diffutils-3.2.tar.gz
 extract
-./configure $(configure-flags)
+./configure $(configure_flags)
 make -j
 make -j install

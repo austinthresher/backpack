@@ -1,6 +1,6 @@
 download https://download.savannah.gnu.org/releases/freetype/freetype-2.10.0.tar.gz
 extract
-./configure $(configure-flags)
+./configure $(configure_flags)
 make -j
 make -j install
-link-to-root
+link_to_root

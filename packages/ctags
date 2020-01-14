@@ -1,6 +1,6 @@
 download http://prdownloads.sourceforge.net/ctags/ctags-5.8.tar.gz
 extract
-./configure $(configure-flags)
+./configure $(configure_flags)
 make -j
 make -j install
-link-to-root
+link_to_root

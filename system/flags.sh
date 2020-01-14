@@ -1,6 +1,6 @@
 #!/bin/bash
 
-function configure-flags {
+function configure_flags {
 	echo "--prefix=$BP_CURRENT_PKG"
 }
 

@@ -1,10 +1,10 @@
-bp-install libtool
-bp-install gmp
-bp-install libunistring
-bp-install libffi
+bp_install libtool
+bp_install gmp
+bp_install libunistring
+bp_install libffi
 download http://ftp.gnu.org/gnu/guile/guile-2.2.6.tar.gz
 extract
-./configure $(configure-flags)
+./configure $(configure_flags)
 make -j
 make -j install
-link-to-root
+link_to_root

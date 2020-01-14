@@ -1,5 +1,5 @@
-bp-install zlib
-bp-install openssl
+bp_install zlib
+bp_install openssl
 download https://github.com/curl/curl/releases/download/curl-7_67_0/curl-7.67.0.tar.gz
 extract
 ./configure --prefix="$BP_CURRENT_PKG/" \
@@ -8,4 +8,4 @@ extract
 	CFLAGS="$(cflags)" LDFLAGS="$(ldflags)"
 make -j
 make install
-link-to-root
+link_to_root

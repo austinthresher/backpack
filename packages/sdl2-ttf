@@ -1,8 +1,8 @@
-bp-install sdl2
-bp-install freetype2
+bp_install sdl2
+bp_install freetype2
 download https://www.libsdl.org/projects/SDL_ttf/release/SDL2_ttf-2.0.15.tar.gz
 extract
-./configure $(configure-flags)
+./configure $(configure_flags)
 make -j
 make -j install
-link-to-root
+link_to_root

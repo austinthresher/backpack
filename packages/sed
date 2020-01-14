@@ -1,6 +1,6 @@
 download https://ftp.gnu.org/gnu/sed/sed-4.2.2.tar.gz
 extract
-./configure $(configure-flags)
+./configure $(configure_flags)
 make -j
 make -j install
-link-to-root
+link_to_root

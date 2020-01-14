@@ -1,6 +1,6 @@
 #!/bin/bash
 
-function link-to-root {
+function link_to_root {
 	cd "$BP_CURRENT_PKG"
 	for d in $(dirname $(find .)); do
 		mkdir -p "$BP_BPFS_PATH/$d"
@@ -30,4 +30,4 @@ function link-to-root {
 	fi
 }
 
-export -f link-to-root
+export -f link_to_root

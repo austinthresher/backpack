@@ -14,7 +14,7 @@ function install {
     export BP_CURRENT_PKG="$BP_PKG_PATH/$BP_PACKAGE_NAME"
     mkdir -p "$BP_CURRENT_PKG"
     source "$BP_AVAIL_PATH/$BP_PACKAGE_NAME"
-    mark-installed "$BP_PACKAGE_NAME"
+    mark_installed "$BP_PACKAGE_NAME"
 }
 
 export -f install
