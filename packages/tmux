@@ -1,5 +1,6 @@
 bp_install pkgconfig
 bp_install autoconf
+bp_install automake
 bp_install curses
 bp_install libevent
 bp_install bison
