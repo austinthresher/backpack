@@ -1,7 +1,7 @@
 #!/bin/bash
 
 function configure_flags {
-	echo "--prefix=$BP_CURRENT_PKG"
+	echo "$@ --prefix=$BP_CURRENT_PKG"
 }
 
 export -f configure_flags

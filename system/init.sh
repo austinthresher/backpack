@@ -9,5 +9,10 @@ for p in ${__BACKPACK_PATHS[@]}; do
 	mkdir -p "$BP_BACKPACK_PATH/$p"
 done
 
+mkdir -p "$BP_BPFS_PATH/lib"
+mkdir -p "$BP_BPFS_PATH/include"
+mkdir -p "$BP_BPFS_PATH/bin"
+mkdir -p "$BP_BPFS_PATH/share"
+
 export PATH="$BP_BIN_PATH:$PATH"
 export BP_PATHS_INITIALIZED=true
