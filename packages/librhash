@@ -5,4 +5,8 @@ extract
 	--enable-openssl-runtime)
 make -j OPTFLAGS="$(cflags)"
 make -j install
+mkdir -p "$BP_PKG_PATH/librhash/include"
+mkdir -p "$BP_PKG_PATH/lib/pkgconfig"
+cp "$BP_SRC_PATH/librhash/librhash/rhash.h" "$BP_PKG_PATH/librhash/include/"
+cp "$BP_SRC_PATH/librhash/dist/librhash.pc" "$BP_PKG_PATH/lib/pkgconfig/"
 link_to_root

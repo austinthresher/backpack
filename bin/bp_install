@@ -34,10 +34,29 @@ else
 	export LDFLAGS=$(ldflags "$LDFLAGS")
 fi
 
+# Scan arguments for flags
+__FORCE=false
+for a in "$@"; do
+	case "$a" in
+		--force|-f)
+			__FORCE=true
+			;;
+	esac
+done
 
-if [ -e "$BP_INSTALLED_PATH/$1" ]; then
-	echo "$1 is already installed"
-else
-	echo "installing $1..."
-	install "$1" && echo "installation of $1 completed successfully"
-fi
+# install packages with names of any non-flag arguments
+for a in "$@"; do
+	case "$a" in
+		--force|-f)
+			continue
+			;;
+		*)
+			if [ "$__FORCE" == false -a -e "$BP_INSTALLED_PATH/$1" ]; then
+				echo "$1 is already installed"
+			else
+				echo "installing $1..."
+				install "$1" && echo "installation of $1 completed successfully"
+			fi
+			;;
+	esac
+done
