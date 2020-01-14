@@ -1,5 +1,6 @@
 bp_install zlib
 bp_install curl
+bp_install librhash
 download https://github.com/Kitware/CMake/releases/download/v3.16.2/cmake-3.16.2.tar.gz
 extract
 ./configure $(configure_flags --system-libs)

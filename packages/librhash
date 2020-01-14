@@ -1,0 +1,8 @@
+bp_install openssl
+download https://github.com/rhash/RHash/archive/v1.3.9.tar.gz
+extract
+./configure $(configure_flags \
+	--enable-openssl-runtime)
+make -j OPTFLAGS="$(cflags)"
+make -j install
+link_to_root
