@@ -1,0 +1,8 @@
+bp-install libtool
+bp-install curses
+download http://www.leonerd.org.uk/code/libtermkey/libtermkey-0.22.tar.gz
+extract
+sed -i "$BP_CURRENT_SRC/Makefile" -e s@PREFIX.*=.*$@PREFIX=$BP_CURRENT_PKG@g
+make -j LOCAL_PREFIX=$BP_CURRENT_PKG
+make -j install LOCAL_PREFIX=$BP_CURRENT_PKG
+link-to-root

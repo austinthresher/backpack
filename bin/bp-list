@@ -1,0 +1,7 @@
+#!/bin/bash
+
+if [ "$BP_PATHS_INITIALIZED" != true ]; then
+	source "$HOME/.bpinit"
+fi
+
+ls -c "$BP_INSTALLED_PATH/"

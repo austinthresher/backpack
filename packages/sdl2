@@ -1,0 +1,6 @@
+download https://www.libsdl.org/release/SDL2-2.0.10.tar.gz
+extract
+./configure $(configure-flags)
+make -j
+make -j install
+link-to-root

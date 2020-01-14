@@ -1,0 +1,8 @@
+bp-install zlib
+bp-install curl
+download https://github.com/Kitware/CMake/releases/download/v3.16.2/cmake-3.16.2.tar.gz
+extract
+./configure $(configure-flags --system-libs)
+make
+make install
+link-to-root

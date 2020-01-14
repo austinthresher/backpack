@@ -1,0 +1,6 @@
+download http://ftp.gnu.org/gnu/gettext/gettext-0.20.1.tar.gz
+extract
+./configure $(configure-flags)
+make -j
+make -j install
+link-to-root

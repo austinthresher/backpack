@@ -1,0 +1,7 @@
+bp-install m4
+download http://ftp.gnu.org/gnu/bison/bison-3.4.2.tar.gz
+extract
+./configure $(configure-flags)
+make # must not be parallel
+make install
+link-to-root

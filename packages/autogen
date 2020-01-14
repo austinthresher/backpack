@@ -1,0 +1,9 @@
+bp-install automake
+bp-install autoconf
+bp-install guile
+download https://ftp.gnu.org/gnu/autogen/rel5.18.16/autogen-5.18.16.tar.gz
+extract
+./configure $(configure-flags)
+make -j
+make -j install
+link-to-root

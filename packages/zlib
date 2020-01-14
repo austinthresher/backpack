@@ -1,0 +1,6 @@
+download https://www.zlib.net/zlib-1.2.11.tar.gz
+extract
+./configure $(configure-flags)
+make -j
+make -j install
+link-to-root

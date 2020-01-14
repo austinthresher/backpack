@@ -1,0 +1,7 @@
+bp-install lua
+download http://luarocks.org/releases/luarocks-3.2.1.tar.gz
+extract
+configure --with-lua=$BP_PKG_PATH/lua/
+make -j
+make -j install
+link-to-root

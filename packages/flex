@@ -1,0 +1,9 @@
+download https://github.com/westes/flex/releases/download/v2.6.3/flex-2.6.3.tar.gz
+extract
+./configure $(configure-flags)
+make -j
+make -j install
+link-to-root
+if [ ! -e "$BP_BIN_PATH/lex" ]; then
+	ln "$BP_BIN_PATH/flex" "$BP_BIN_PATH/lex"
+fi

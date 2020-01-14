@@ -1,0 +1,6 @@
+download https://github.com/libevent/libevent/releases/download/release-2.1.11-stable/libevent-2.1.11-stable.tar.gz
+extract
+./configure $(configure-flags)
+make -j
+make -j install
+link-to-root

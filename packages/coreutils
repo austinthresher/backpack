@@ -1,0 +1,17 @@
+bp-install autoconf
+bp-install automake
+bp-install bison
+bp-install gettext
+bp-install gperf
+bp-install gzip
+bp-install perl
+bp-install rsync
+bp-install tar
+bp-install texinfo
+download http://ftp.gnu.org/gnu/coreutils/coreutils-8.13.tar.gz
+extract
+export CFLAGS=$(cflags -D_GL_WARN_ON_USE\(a\,b\)=)
+./configure $(configure-flags)
+make install
+link
+# ln -s /usr/bin/strip $HOME/.backpack/bin/

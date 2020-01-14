@@ -1,0 +1,6 @@
+download https://ftp.gnu.org/gnu/termcap/termcap-1.3.1.tar.gz
+extract
+./configure $(configure-flags)
+make -j
+make -j install
+link-to-root

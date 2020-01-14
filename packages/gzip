@@ -1,0 +1,6 @@
+download http://ftp.gnu.org/gnu/gzip/gzip-1.10.tar.gz
+extract
+./configure $(configure-flags)
+make -j
+make -j install
+link-to-root

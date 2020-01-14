@@ -1,0 +1,43 @@
+#!/bin/bash
+set -e
+
+if [ "$BP_PATHS_INITIALIZED" != true ]; then
+	source "$HOME/.bpinit"
+fi
+
+export LD_LIBRARY_PATH="$BP_BPFS_PATH/lib"
+export PKG_CONFIG_PATH="$BP_BPFS_PATH/lib/pkgconfig"
+
+source "$BP_SYSTEM_PATH/download.sh"
+source "$BP_SYSTEM_PATH/extract.sh"
+source "$BP_SYSTEM_PATH/installations.sh"
+source "$BP_SYSTEM_PATH/confirm.sh"
+source "$BP_SYSTEM_PATH/install.sh"
+source "$BP_SYSTEM_PATH/flags.sh"
+source "$BP_SYSTEM_PATH/link.sh"
+
+if [ -z "$CXXFLAGS" ]; then
+	export CXXFLAGS=$(cflags)
+else
+	export CXXFLAGS=$(cflags "$CXXFLAGS")
+fi
+
+if [ -z "$CFLAGS" ]; then
+	export CFLAGS=$(cflags)
+else
+	export CFLAGS=$(cflags "$CFLAGS")
+fi
+
+if [ -z "$LDFLAGS" ]; then
+	export LDFLAGS=$(ldlags)
+else
+	export LDFLAGS=$(ldlags "$LDFLAGS")
+fi
+
+
+if [ -e "$BP_INSTALLED_PATH/$1" ]; then
+	echo "$1 is already installed"
+else
+	echo "installing $1..."
+	install "$1" && echo "installation of $1 completed successfully"
+fi

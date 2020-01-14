@@ -1,0 +1,11 @@
+bp-install automake
+bp-install autoconf
+bp-install libtool
+bp-install make
+bp-install coreutils
+checkout https://github.com/libffi/libffi
+./autogen.sh
+configure $(configure-flags)
+make -j
+make -j install
+link-to-root

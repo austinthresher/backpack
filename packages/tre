@@ -1,0 +1,6 @@
+download http://laurikari.net/tre/tre-0.8.0.tar.gz
+extract
+./configure $(configure-flags)
+make -j
+make -j install
+link-to-root

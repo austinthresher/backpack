@@ -1,0 +1,6 @@
+download http://ftp.gnu.org/gnu/screen/screen-4.7.0.tar.gz
+extract
+./configure $(configure-flags)
+make -j
+make -j install
+link-to-root

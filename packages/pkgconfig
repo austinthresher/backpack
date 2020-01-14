@@ -1,0 +1,6 @@
+download http://pkgconfig.freedesktop.org/releases/pkg-config-0.29.2.tar.gz
+extract
+./configure $(configure-flags --with-internal-glib)
+make -j
+make -j install
+link-to-root

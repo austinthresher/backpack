@@ -1,0 +1,4 @@
+download https://sourceware.org/pub/bzip2/bzip2-latest.tar.gz
+extract
+make install PREFIX="$BP_CURRENT_PKG"
+link-to-run

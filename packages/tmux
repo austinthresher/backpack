@@ -1,0 +1,13 @@
+bp-install pkgconfig
+bp-install autoconf
+bp-install curses
+bp-install libevent
+bp-install bison
+checkout https://github.com/tmux/tmux
+git pull
+export ACLOCAL_PATH="$BP_BPFS_PATH/share/aclocal"
+./autogen.sh
+./configure $(configure-flags)
+make -j
+make -j install
+link-to-root

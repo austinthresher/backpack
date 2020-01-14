@@ -1,0 +1,6 @@
+download http://ftp.gnu.org/gnu/wget/wget-1.20.3.tar.gz
+extract
+./configure $(configure-flags)
+make -j
+make -j install
+link-to-root

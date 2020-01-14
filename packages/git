@@ -1,0 +1,4 @@
+download https://github.com/git/git/archive/v2.24.1.tar.gz
+extract
+make prefix="$BP_CURRENT_PKG"
+make prefix="$BP_CURRENT_PKG" install
