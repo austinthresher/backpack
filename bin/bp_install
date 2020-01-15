@@ -15,6 +15,7 @@ source "$BP_SYSTEM_PATH/confirm.sh"
 source "$BP_SYSTEM_PATH/install.sh"
 source "$BP_SYSTEM_PATH/flags.sh"
 source "$BP_SYSTEM_PATH/link.sh"
+source "$BP_SYSTEM_PATH/verify.sh"
 
 if [ -z "$CMAKE_PREFIX_PATH" ]; then
 	export CMAKE_PREFIX_PATH="$BP_BPFS_PATH"
@@ -61,7 +62,13 @@ for a in "$@"; do
 				echo "$1 is already installed"
 			else
 				echo "installing $1..."
-				install "$1" && echo "installation of $1 completed successfully"
+				install "$1"
+				if [ "$BP_INSTALL_ERROR" == 0 ]; then
+					echo "installation of $1 completed successfully"
+				else
+					echo "installation of $1 failed, exiting"
+					exit 1
+				fi
 			fi
 			;;
 	esac

@@ -4,3 +4,5 @@ extract
 make $(make_flags)
 make install -j
 link_to_root
+verify /include/curses.h
+verify /lib/libncurses.so

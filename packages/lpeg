@@ -6,3 +6,4 @@ make -f makefile
 mkdir -p "$BP_CURRENT_PKG/lib"
 cp lpeg.so "$BP_CURRENT_PKG/lib/liblpeg.so"
 link_to_root
+verify /lib/liblpeg.so

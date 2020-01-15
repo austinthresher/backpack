@@ -7,3 +7,5 @@ link_to_root
 if [ ! -e "$BP_BIN_PATH/lex" ]; then
 	ln "$BP_BIN_PATH/flex" "$BP_BIN_PATH/lex"
 fi
+verify /bin/flex
+verify /bin/lex

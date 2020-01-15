@@ -9,3 +9,4 @@ extract
 make $(make_flags)
 make install
 link_to_root
+verify /bin/curl

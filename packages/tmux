@@ -12,3 +12,4 @@ export ACLOCAL_PATH="$BP_BPFS_PATH/share/aclocal"
 make $(make_flags)
 make $(make_flags install)
 link_to_root
+verify /bin/tmux

@@ -4,3 +4,4 @@ extract
 make $(make_flags)
 make install -j
 link_to_root
+verify /bin/m4

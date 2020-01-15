@@ -5,3 +5,5 @@ configure --with-lua=$BP_PKG_PATH/lua/
 make $(make_flags)
 make $(make_flags install)
 link_to_root
+# TODO
+#verify

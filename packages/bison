@@ -5,3 +5,4 @@ extract
 make # must not be parallel
 make install
 link_to_root
+verify /bin/bison

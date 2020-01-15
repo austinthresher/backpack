@@ -8,3 +8,5 @@ extract
 make $(make_flags)
 make $(make_flags install)
 link_to_root
+# TODO
+#verify

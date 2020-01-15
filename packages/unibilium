@@ -4,3 +4,5 @@ extract
 make $(make_flags) PREFIX="$BP_CURRENT_PKG"
 make $(make_flags) PREFIX="$BP_CURRENT_PKG" install
 link_to_root
+# TODO
+#verify

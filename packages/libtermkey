@@ -6,3 +6,5 @@ sed -i "$BP_CURRENT_SRC/Makefile" -e s@PREFIX.*=.*$@PREFIX=$BP_CURRENT_PKG@g
 make $(make_flags) LOCAL_PREFIX=$BP_CURRENT_PKG
 make $(make_flags install) LOCAL_PREFIX=$BP_CURRENT_PKG
 link_to_root
+# TODO
+#verify

@@ -3,3 +3,4 @@ extract
 make posix
 make install INSTALL_TOP=$BP_CURRENT_PKG
 link_to_root
+verify /bin/lua5.2

@@ -14,10 +14,11 @@ function install {
     fi
     export BP_CURRENT_PKG="$BP_PKG_PATH/$BP_PACKAGE_NAME"
     mkdir -p "$BP_CURRENT_PKG"
+    export BP_INSTALL_ERROR=0
     source "$BP_AVAIL_PATH/$BP_PACKAGE_NAME"
-    __RET=$?
-    mark_installed "$BP_PACKAGE_NAME"
-    return "$__RET"
+    if [ "$BP_INSTALL_ERROR" == 0 ]; then
+        mark_installed "$BP_PACKAGE_NAME"
+    fi
 }
 
 export -f install

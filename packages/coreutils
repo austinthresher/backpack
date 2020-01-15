@@ -14,3 +14,4 @@ export CFLAGS=$(cflags -D_GL_WARN_ON_USE\(a\,b\)=)
 ./configure $(configure_flags)
 make install
 link_to_root
+verify /bin/expr

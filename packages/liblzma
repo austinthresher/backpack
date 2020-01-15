@@ -3,3 +3,4 @@ checkout https://github.com/kobolabs/liblzma
 make $(make_flags)
 make $(make_flags install)
 link_to_root
+verify /lib/liblzma.so

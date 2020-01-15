@@ -2,3 +2,4 @@ download https://sourceware.org/pub/bzip2/bzip2-latest.tar.gz
 extract
 make install PREFIX="$BP_CURRENT_PKG"
 link_to_root
+verify /lib/libbz2.so

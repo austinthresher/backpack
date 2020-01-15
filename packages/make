@@ -5,3 +5,4 @@ sed -i -e '211s/&&/&!/' "$BP_CURRENT_SRC/glob/glob.c"
 make $(make_flags)
 make $(make_flags install)
 link_to_root
+verify /bin/make

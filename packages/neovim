@@ -11,3 +11,4 @@ link_to_root
 if [ ! -e "$BP_BIN_PATH/vim" ]; then
 	ln -s "$BP_BIN_PATH/nvim" "$BP_BIN_PATH/vim"
 fi
+verify /bin/nvim

@@ -6,3 +6,5 @@ configure --with-gmp="$BP_PKG_PATH/gmp/" --with-mpfr="$BP_PKG_PATH/mpfr"
 make $(make_flags)
 make $(make_flags install)
 link_to_root
+# TODO
+#verify
