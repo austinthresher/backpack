@@ -1,0 +1,6 @@
+bp_install curses
+download https://github.com/mauke/unibilium/archive/v2.0.0.tar.gz
+extract
+make -j PREFIX="$BP_CURRENT_PKG"
+make -j PREFIX="$BP_CURRENT_PKG" install
+link_to_root
