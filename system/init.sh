@@ -1,7 +1,7 @@
 #!/bin/bash
 
 export BP_BACKPACK_PATH="$HOME/.backpack"
-__BACKPACK_PATHS=( bin src pkg tar bpfs installed avail system )
+__BACKPACK_PATHS=( bin src pkg tar bpfs installed avail system logs )
 for p in ${__BACKPACK_PATHS[@]}; do
 	__CAPS=$(echo $p | tr '[:lower:]' '[:upper:]')
 	__VARNAME="BP_${__CAPS}_PATH"

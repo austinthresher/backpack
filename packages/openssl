@@ -3,5 +3,6 @@ extract
 ./config $(configure_flags)
 make $(make_flags)
 make $(make_flags install)
+echo "made it this far"
 link_to_root
-verify /lib/libcrypt.so
+verify /lib/libcrypto.so

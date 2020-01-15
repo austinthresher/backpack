@@ -1,45 +1,51 @@
 #!/bin/bash
 set -e
 
-if [ "$BP_PATHS_INITIALIZED" != true ]; then
-	source "$HOME/.bpinit"
-fi
+if [ -z "$BP_INSTALL_DEPTH" ]; then
+	if [ "$BP_PATHS_INITIALIZED" != true ]; then
+		source "$HOME/.bpinit"
+	fi
 
-export LD_LIBRARY_PATH="$BP_BPFS_PATH/lib"
-export PKG_CONFIG_PATH="$BP_BPFS_PATH/lib/pkgconfig"
+	export LD_LIBRARY_PATH="$BP_BPFS_PATH/lib"
+	export PKG_CONFIG_PATH="$BP_BPFS_PATH/lib/pkgconfig"
 
-source "$BP_SYSTEM_PATH/download.sh"
-source "$BP_SYSTEM_PATH/extract.sh"
-source "$BP_SYSTEM_PATH/installations.sh"
-source "$BP_SYSTEM_PATH/confirm.sh"
-source "$BP_SYSTEM_PATH/install.sh"
-source "$BP_SYSTEM_PATH/flags.sh"
-source "$BP_SYSTEM_PATH/link.sh"
-source "$BP_SYSTEM_PATH/verify.sh"
+	source "$BP_SYSTEM_PATH/download.sh"
+	source "$BP_SYSTEM_PATH/extract.sh"
+	source "$BP_SYSTEM_PATH/installations.sh"
+	source "$BP_SYSTEM_PATH/confirm.sh"
+	source "$BP_SYSTEM_PATH/install.sh"
+	source "$BP_SYSTEM_PATH/flags.sh"
+	source "$BP_SYSTEM_PATH/link.sh"
+	source "$BP_SYSTEM_PATH/verify.sh"
+	source "$BP_SYSTEM_PATH/error.sh"
+	source "$BP_SYSTEM_PATH/messages.sh"
+	
+	export BP_INSTALL_DEPTH=0
 
-if [ -z "$CMAKE_PREFIX_PATH" ]; then
-	export CMAKE_PREFIX_PATH="$BP_BPFS_PATH"
+	print_header
+	print_command install "$@"
 else
-	export CMAKE_PREFIX_PATH="$BP_BPFS_PATH:$CMAKE_PREFIX_PATH"
+	export BP_INSTALL_DEPTH=$(($BP_INSTALL_DEPTH+1))
 fi
 
-if [ -z "$CXXFLAGS" ]; then
-	export CXXFLAGS=$(cflags)
-else
-	export CXXFLAGS=$(cflags "$CXXFLAGS")
-fi
+function append_to {
+	local name="$1"
+	local cur_val="${!1}"
+	local new_val="$2"
+	local sep="$3"
+	if [ -z "$cur_val" ]; then
+		echo "$new_val"
+	else
+		if [[ *"$new_val"* != "$cur_val" ]]; then
+			echo "${new_val}${sep}${cur_val}"
+		fi
+	fi
+}
 
-if [ -z "$CFLAGS" ]; then
-	export CFLAGS=$(cflags)
-else
-	export CFLAGS=$(cflags "$CFLAGS")
-fi
-
-if [ -z "$LDFLAGS" ]; then
-	export LDFLAGS=$(ldflags)
-else
-	export LDFLAGS=$(ldflags "$LDFLAGS")
-fi
+export CMAKE_PREFIX_PATH="$(append_to CMAKE_PREFIX_PATH $BP_BPFS_PATH ':')"
+export CXXFLAGS=$(append_to CXXFLAGS "$(cflags)" ' ')
+export CFLAGS=$(append_to CFLAGS "$(cflags)" ' ')
+export LDFLAGS=$(append_to LDFLAGS "$(ldflags)" ' ')
 
 # Scan arguments for flags
 __FORCE=false
@@ -51,6 +57,8 @@ for a in "$@"; do
 	esac
 done
 
+__INDENT="                               "
+
 # install packages with names of any non-flag arguments
 for a in "$@"; do
 	case "$a" in
@@ -58,17 +66,25 @@ for a in "$@"; do
 			continue
 			;;
 		*)
+			if [ ! -z "$BP_PACKAGE_NAME" ]; then
+				print_block_opening "$BP_INSTALL_DEPTH" -n "$BP_PACKAGE_NAME requires $1: " &> /dev/tty
+			fi
 			if [ "$__FORCE" == false -a -e "$BP_INSTALLED_PATH/$1" ]; then
-				echo "$1 is already installed"
+				# Package is already installed, continue
+				echo "ok" &> /dev/tty
 			else
-				echo "installing $1..."
-				install "$1"
-				if [ "$BP_INSTALL_ERROR" == 0 ]; then
-					echo "installation of $1 completed successfully"
-				else
-					echo "installation of $1 failed, exiting"
-					exit 1
-				fi
+				echo "building" &> /dev/tty
+				__CURRENT_DEPTH="$BP_INSTALL_DEPTH"
+				(($__CURRENT_DEPTH>0)) && echo ">> Running install script '$1'"
+				{
+					__CALLER="${BP_PACKAGE_NAME:backpack}"
+					echo ">>>> Entering from install script '$__CALLER'"
+					install "$1"
+					echo ">>>> Returning to install script '$__CALLER'"
+    				} &> "$BP_LOGS_PATH/$1"
+				(($__CURRENT_DEPTH>0)) && echo ">> Returned from script '$1' with status $?"
+				export BP_INSTALL_DEPTH="$__CURRENT_DEPTH"
+				print_block_contents "$BP_INSTALL_DEPTH" "built $1" &> /dev/tty
 			fi
 			;;
 	esac

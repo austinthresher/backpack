@@ -7,10 +7,7 @@
 function verify {
 	echo -n "verifying file '$BP_BPFS_PATH/$1' was installed... "
 	if [ ! -f "$BP_BPFS_PATH/$1" ]; then
-		echo "missing"
-		export BP_INSTALL_ERROR=1
-	else
-		echo "found"
+		fatal "failed to verify file '$BP_BPFS_PATH/$1'"
 	fi
 }
 

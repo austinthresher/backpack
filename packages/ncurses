@@ -1,8 +1,7 @@
 download ftp://ftp.invisible-island.net/ncurses/ncurses-6.1.tar.gz
 extract
-./configure $(configure_flags) --enable-shared --enable-pc-files --with-pkg-config-libdir="$PKG_CONFIG_PATH"
+./configure $(configure_flags --enable-shared --enable-pc-files --with-pkg-config-libdir="$PKG_CONFIG_PATH")
 make $(make_flags)
-make install -j
+make $(make_flags install)
 link_to_root
-verify /include/curses.h
-verify /lib/libncurses.so
+verify /include/ncurses/curses.h

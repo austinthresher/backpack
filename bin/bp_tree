@@ -4,7 +4,9 @@ set -e
 if [ "$BP_PATHS_INITIALIZED" != true ]; then
 	source "$HOME/.bpinit"
 fi
-__INDENT="                                       "
+
+source "$BP_SYSTEM_PATH/messages.sh"
+source "$BP_SYSTEM_PATH/error.sh"
 
 # tree_recur <package-name> <depth>
 # Recursively print dependencies for the given package
@@ -26,8 +28,7 @@ function tree_recur {
 			:
 		fi
 	else
-		echo "couldn't find '$1' in available packages. Exiting"
-		exit 1
+		fatal "couldn't find '$1' in available packages"
 	fi
 }
 

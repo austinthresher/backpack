@@ -1,3 +1,5 @@
 bp_install ncurses
 bp_install ncursesw
-ln -s "$BP_BPFS_PATH/share/terminfo" "$HOME/.terminfo"
+if [ ! -L "$HOME/.terminfo" ]; then
+	ln -s "$BP_BPFS_PATH/share/terminfo" "$HOME/.terminfo"
+fi
