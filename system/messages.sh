@@ -8,8 +8,17 @@ export -f print_header
 function print_command {
 	echo ":: $@"
 }
-
 export -f print_command
+
+function print_divider {
+	local len="$1"
+	local char="$2"
+	for ((i=0;i<$len;i++)); do
+		printf "$char"
+	done
+	printf "\n"
+}
+export -f print_divider
 
 # print_indent <tabs>
 # prints <tabs> * 4 spaces without a newline

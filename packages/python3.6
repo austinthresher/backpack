@@ -1,0 +1,10 @@
+bp_install git
+bp_install zlib
+bp_install openssl
+checkout https://github.com/python/cpython
+git checkout 3.6
+./configure $(configure_flags)
+make $(make_flags)
+make $(make_flags install)
+link_to_root
+verify /bin/python3

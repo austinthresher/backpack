@@ -57,8 +57,6 @@ for a in "$@"; do
 	esac
 done
 
-__INDENT="                               "
-
 # install packages with names of any non-flag arguments
 for a in "$@"; do
 	case "$a" in
@@ -77,10 +75,10 @@ for a in "$@"; do
 				__CURRENT_DEPTH="$BP_INSTALL_DEPTH"
 				(($__CURRENT_DEPTH>0)) && echo ">> Running install script '$1'"
 				{
-					__CALLER="${BP_PACKAGE_NAME:backpack}"
-					echo ">>>> Entering from install script '$__CALLER'"
+					__CALLER="${BP_PACKAGE_NAME:-backpack}"
+					(($__CURRENT_DEPTH>0)) && echo ">>>> Entering from install script '$__CALLER'"
 					install "$1"
-					echo ">>>> Returning to install script '$__CALLER'"
+					(($__CURRENT_DEPTH>0)) && echo ">>>> Returning to install script '$__CALLER'"
     				} &> "$BP_LOGS_PATH/$1"
 				(($__CURRENT_DEPTH>0)) && echo ">> Returned from script '$1' with status $?"
 				export BP_INSTALL_DEPTH="$__CURRENT_DEPTH"

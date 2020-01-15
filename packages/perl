@@ -1,7 +1,7 @@
 download https://www.cpan.org/src/5.0/perl-5.30.1.tar.gz
 extract
 sed -i -e 1876d Configure
-configure -d -Dprefix=$BP_CURRENT_PKG
+./Configure -d -Dprefix=$BP_CURRENT_PKG
 make $(make_flags)
 make $(make_flags install)
 link_to_root
