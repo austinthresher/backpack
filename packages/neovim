@@ -2,6 +2,7 @@ bp_install libtool
 bp_install m4
 bp_install automake
 bp_install cmake
+bp_install unibilium
 download https://github.com/neovim/neovim/archive/v0.4.3.tar.gz
 extract
 make CMAKE_INSTALL_PREFIX="$BP_CURRENT_PKG"

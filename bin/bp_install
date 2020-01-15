@@ -16,6 +16,12 @@ source "$BP_SYSTEM_PATH/install.sh"
 source "$BP_SYSTEM_PATH/flags.sh"
 source "$BP_SYSTEM_PATH/link.sh"
 
+if [ -z "$CMAKE_PREFIX_PATH" ]; then
+	export CMAKE_PREFIX_PATH="$BP_BPFS_PATH"
+else
+	export CMAKE_PREFIX_PATH="$BP_BPFS_PATH:$CMAKE_PREFIX_PATH"
+fi
+
 if [ -z "$CXXFLAGS" ]; then
 	export CXXFLAGS=$(cflags)
 else

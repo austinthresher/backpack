@@ -1,0 +1,5 @@
+checkout https://github.com/kobolabs/liblzma
+./configure $(configure_flags)
+make -j
+make -j install
+link_to_root
