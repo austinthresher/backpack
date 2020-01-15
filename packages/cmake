@@ -1,8 +1,11 @@
 bp_install zlib
 bp_install curl
+bp_install liblzma
+bp_install librhash
+bp_install libarchive
 download https://github.com/Kitware/CMake/releases/download/v3.16.2/cmake-3.16.2.tar.gz
 extract
-./configure $(configure_flags --system-libs --no-system-librhash)
-make
-make install
+./configure $(configure_flags --system-libs)
+make -j
+make -j install
 link_to_root

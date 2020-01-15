@@ -1,0 +1,8 @@
+bp_install pkgconfig
+checkout https://github.com/rhash/rhash
+./configure $(configure_flags --enable-openssl-runtime --enable-lib-static)
+make -j && make -j install
+mkdir -p "$BP_CURRENT_PKG/lib/pkgconfig"
+cp "$BP_CURRENT_SRC/dist/librhash.pc" "$BP_CURRENT_PKG/lib/pkgconfig/librhash.pc"
+link_to_root
+
