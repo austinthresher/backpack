@@ -1,0 +1,34 @@
+#!/bin/bash
+set -e
+
+if [ "$BP_PATHS_INITIALIZED" != true ]; then
+	source "$HOME/.bpinit"
+fi
+__INDENT="                                       "
+
+# tree_recur <package-name> <depth>
+# Recursively print dependencies for the given package
+function tree_recur { 
+	local depth="$2"
+	local pkg="$BP_AVAIL_PATH/$1"
+
+	# Expand to 4 spaces per tab
+	local t="${__INDENT:1:$depth}"
+	echo "$t$t$t$t$1"
+
+	# check if the file has any dependencies
+	if [ -e "$pkg" ]; then
+		if cat "$pkg" | grep bp_install &> /dev/null; then
+			for p in $(cat "$pkg" | grep bp_install | awk '{print $2}'); do
+				tree_recur "$p"	$(($depth+1))
+			done
+		else
+			:
+		fi
+	else
+		echo "couldn't find '$1' in available packages. Exiting"
+		exit 1
+	fi
+}
+
+tree_recur "$1" 0
