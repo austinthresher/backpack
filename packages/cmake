@@ -3,9 +3,12 @@ bp_install curl
 bp_install liblzma
 bp_install librhash
 bp_install libarchive
-download https://github.com/Kitware/CMake/releases/download/v3.16.2/cmake-3.16.2.tar.gz
+# download https://github.com/Kitware/CMake/releases/download/v3.16.2/cmake-3.16.2.tar.gz
+download https://github.com/Kitware/CMake/releases/download/v2.8.12.2/cmake-2.8.12.2.tar.gz
 extract
-./configure $(configure_flags --system-libs)
+export CURL_LIBRARY="$BP_BPFS_DIR/lib/libcurl.sh"
+export CURL_INCLUDE_DIR="$BP_BPFS_DIR/include/"
+./configure $(configure_flags --system-curl)
 make -j
 make -j install
 link_to_root
