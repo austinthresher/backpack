@@ -9,6 +9,6 @@ git pull
 export ACLOCAL_PATH="$BP_BPFS_PATH/share/aclocal"
 ./autogen.sh
 ./configure $(configure_flags)
-make -j
-make -j install
+make $(make_flags)
+make $(make_flags install)
 link_to_root

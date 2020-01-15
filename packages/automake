@@ -4,6 +4,6 @@ bp_install xz
 download http://ftp.gnu.org/gnu/automake/automake-1.16.1.tar.gz
 extract
 ./configure $(configure_flags)
-make -j
-make -j install
+make $(make_flags)
+make $(make_flags install)
 link_to_root

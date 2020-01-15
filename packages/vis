@@ -5,6 +5,6 @@ bp_install tre
 download https://github.com/martanne/vis/releases/download/v0.5/vis-v0.5.tar.gz
 extract
 ./configure $(configure_flags --enable-lpeg-static)
-make -j
-make -j install
+make $(make_flags)
+make $(make_flags install)
 link_to_root

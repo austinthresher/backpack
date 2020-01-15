@@ -6,6 +6,6 @@ bp_install coreutils
 checkout https://github.com/libffi/libffi
 ./autogen.sh
 configure $(configure_flags)
-make -j
-make -j install
+make $(make_flags)
+make $(make_flags install)
 link_to_root

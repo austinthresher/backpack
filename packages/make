@@ -2,6 +2,6 @@ download https://ftp.gnu.org/gnu/make/make-4.2.1.tar.gz
 extract
 configure
 sed -i -e '211s/&&/&!/' "$BP_CURRENT_SRC/glob/glob.c"
-make -j
-make -j install
+make $(make_flags)
+make $(make_flags install)
 link_to_root

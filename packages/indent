@@ -1,6 +1,6 @@
 download http://ftp.gnu.org/gnu/indent/indent-2.2.12.tar.gz
 extract
 ./configure $(configure_flags)
-make -j
-make -j install
+make $(make_flags)
+make $(make_flags install)
 link_to_root

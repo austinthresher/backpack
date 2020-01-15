@@ -4,6 +4,6 @@ bp_install m4
 download http://ftp.gnu.org/gnu/autoconf/autoconf-2.68.tar.gz
 extract
 ./configure $(configure_flags)
-make -j
-make -j install
+make $(make_flags)
+make $(make_flags install)
 link_to_root

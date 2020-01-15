@@ -1,6 +1,6 @@
 download ftp://ftp.gnu.org/gnu/libtool/libtool-2.4.tar.gz
 extract
 ./configure $(configure_flags)
-make -j
-make -j install
+make $(make_flags)
+make $(make_flags install)
 link_to_root

@@ -1,6 +1,6 @@
 download https://www.openssl.org/source/old/1.1.1/openssl-1.1.1c.tar.gz
 extract
 ./config $(configure_flags)
-make -j
-make -j install
+make $(make_flags)
+make $(make_flags install)
 link_to_root

@@ -6,6 +6,6 @@ extract
 	--with-zlib="$BP_PKG_PATH/zlib" \
 	--with-ssl="$BP_PKG_PATH/openssl" \
 	CFLAGS="$(cflags)" LDFLAGS="$(ldflags)"
-make -j
+make $(make_flags)
 make install
 link_to_root

@@ -1,6 +1,6 @@
 download https://tukaani.org/xz/xz-5.2.4.tar.gz
 extract
 ./configure $(configure-flags)
-make -j
-make -j install
+make $(make_flags)
+make $(make_flags install)
 link_to_root

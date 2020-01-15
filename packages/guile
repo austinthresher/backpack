@@ -5,6 +5,6 @@ bp_install libffi
 download http://ftp.gnu.org/gnu/guile/guile-2.2.6.tar.gz
 extract
 ./configure $(configure_flags)
-make -j
-make -j install
+make $(make_flags)
+make $(make_flags install)
 link_to_root

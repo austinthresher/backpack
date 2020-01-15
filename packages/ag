@@ -2,6 +2,6 @@ bp_install pcre
 download https://geoff.greer.fm/ag/releases/the_silver_searcher-1.0.3.tar.gz
 extract
 ./configure $(configure_flags --disable-lzma)
-make -j
-make -j install
+make $(make_flags)
+make $(make_flags install)
 link_to_root

@@ -1,6 +1,6 @@
 download ftp://ftp.invisible-island.net/ncurses/ncurses-6.1.tar.gz
 extract
 ./configure $(configure_flags) --enable-widec --enable-shared --enable-pc-files --with-pkg-config-libdir="$PKG_CONFIG_PATH"
-make -j
+make $(make_flags)
 make install -j
 link_to_root

@@ -7,6 +7,6 @@ extract
 	--with-gmp=%HOME%/.backpack/pkg/gmp \
 	--with-mpfr=%HOME%/.backpack/pkg/mpfr \
 	--with-mpc=%HOME%/.backpack/pkg/mpc)
-make -j
-make -j install
+make $(make_flags)
+make $(make_flags install)
 link_to_root

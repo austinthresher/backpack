@@ -4,6 +4,6 @@ bp_install guile
 download https://ftp.gnu.org/gnu/autogen/rel5.18.16/autogen-5.18.16.tar.gz
 extract
 ./configure $(configure_flags)
-make -j
-make -j install
+make $(make_flags)
+make $(make_flags install)
 link_to_root

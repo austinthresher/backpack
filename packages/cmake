@@ -8,6 +8,6 @@ download https://github.com/Kitware/CMake/releases/download/v3.16.2/cmake-3.16.2
 extract
 export CMAKE_PREFIX_PATH="$BP_BPFS_PATH"
 ./configure $(configure_flags --system-curl)
-make -j
-make -j install
+make $(make_flags)
+make $(make_flags install)
 link_to_root

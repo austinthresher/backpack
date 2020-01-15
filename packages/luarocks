@@ -2,6 +2,6 @@ bp_install lua
 download http://luarocks.org/releases/luarocks-3.2.1.tar.gz
 extract
 configure --with-lua=$BP_PKG_PATH/lua/
-make -j
-make -j install
+make $(make_flags)
+make $(make_flags install)
 link_to_root
