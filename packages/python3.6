@@ -3,6 +3,9 @@ bp_install zlib
 bp_install openssl
 checkout https://github.com/python/cpython
 git checkout 3.6
+sed -i "$BP_CURRENT_SRC/Modules/Setup.dist" \
+	-e '210,212s\#\\g' \
+	-e "208aSSL=$BP_PKG_PATH/openssl"
 ./configure $(configure_flags)
 make $(make_flags)
 make $(make_flags install)

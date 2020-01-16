@@ -6,4 +6,5 @@ download https://github.com/git/git/archive/v2.24.1.tar.gz
 extract
 make $(make_flags prefix="$BP_CURRENT_PKG" CURLDIR="$BP_PKG_PATH/curl" OPENSSLDIR="$BP_PKG_PATH/openssl")
 make $(make_flags prefix="$BP_CURRENT_PKG" CURLDIR="$BP_PKG_PATH/curl" OPENSSLDIR="$BP_PKG_PATH/openssl" install)
+link_to_root
 verify /bin/git

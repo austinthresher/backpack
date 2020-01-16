@@ -8,6 +8,7 @@ if [ -z "$BP_INSTALL_DEPTH" ]; then
 
 	export LD_LIBRARY_PATH="$BP_BPFS_PATH/lib"
 	export PKG_CONFIG_PATH="$BP_BPFS_PATH/lib/pkgconfig"
+	export PKG_CONFIG="$BP_BIN_PATH/pkg-config"
 
 	source "$BP_SYSTEM_PATH/download.sh"
 	source "$BP_SYSTEM_PATH/extract.sh"
