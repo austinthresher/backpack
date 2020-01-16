@@ -1,8 +1,9 @@
 bp_install zlib
 bp_install perl
 bp_install openssl
+bp_install curl
 download https://github.com/git/git/archive/v2.24.1.tar.gz
 extract
-make prefix="$BP_CURRENT_PKG"
-make prefix="$BP_CURRENT_PKG" install
+make $(make_flags prefix="$BP_CURRENT_PKG" CURLDIR="$BP_PKG_PATH/curl" OPENSSLDIR="$BP_PKG_PATH/openssl")
+make $(make_flags prefix="$BP_CURRENT_PKG" CURLDIR="$BP_PKG_PATH/curl" OPENSSLDIR="$BP_PKG_PATH/openssl" install)
 verify /bin/git
