@@ -1,0 +1,20 @@
+bp_install git
+bp_install go-bootstrap
+checkout https://go.googlesource.com/go
+git checkout go1.13.6
+export GOROOT_BOOTSTRAP="$BP_SRC_PATH/go-bootstrap"
+export GOROOT_FINAL="$BP_CURRENT_PKG"
+cd src
+export CGO_CFLAGS="$CFLAGS"
+export CGO_CXXFLAGS="$CFLAGS"
+export CGO_CPPFLAGS="$CFLAGS"
+export CGO_LDFLAGS="$LDFLAGS"
+export GOROOT_FINAL="$BP_CURRENT_PKG"
+./make.bash
+rm -rf "$BP_CURRENT_PKG"
+ln -s "$BP_CURRENT_SRC" "$BP_CURRENT_PKG"
+link_to_root
+sed -i "$BP_BIN_PATH/go" -e "2iexport CGO_CFLAGS='$CFLAGS'"
+sed -i "$BP_BIN_PATH/go" -e "2iexport CGO_CXXFLAGS='$CFLAGS'"
+sed -i "$BP_BIN_PATH/go" -e "2iexport CGO_CPPFLAGS='$CFLAGS'"
+sed -i "$BP_BIN_PATH/go" -e "2iexport CGO_LDFLAGS='$LDFLAGS'"
