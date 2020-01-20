@@ -5,6 +5,9 @@ bp_install cmake
 bp_install unibilium
 download https://github.com/neovim/neovim/archive/v0.4.3.tar.gz
 extract
+export CFLAGS+=" -pthread"
+export CPPFLAGS+=" -pthread"
+export CXXFLAGS+=" -pthread"
 make CMAKE_INSTALL_PREFIX="$BP_CURRENT_PKG"
 make CMAKE_INSTALL_PREFIX="$BP_CURRENT_PKG" install
 link_to_root

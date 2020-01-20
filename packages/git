@@ -2,9 +2,10 @@ bp_install zlib
 bp_install perl
 bp_install openssl
 bp_install curl
+bp_install expat
 download https://github.com/git/git/archive/v2.24.1.tar.gz
 extract
-make $(make_flags prefix="$BP_CURRENT_PKG" CURLDIR="$BP_PKG_PATH/curl" OPENSSLDIR="$BP_PKG_PATH/openssl")
-make $(make_flags prefix="$BP_CURRENT_PKG" CURLDIR="$BP_PKG_PATH/curl" OPENSSLDIR="$BP_PKG_PATH/openssl" install)
+make $(make_flags prefix="$BP_CURRENT_PKG" ZLIB_PATH="$BP_PKG_PATH/zlib" EXPATDIR="$BP_PKG_PATH/expat" CURLDIR="$BP_PKG_PATH/curl" OPENSSLDIR="$BP_PKG_PATH/openssl")
+make $(make_flags prefix="$BP_CURRENT_PKG" ZLIB_PATH="$BP_PKG_PATH/zlib" EXPATDIR="$BP_PKG_PATH/expat" CURLDIR="$BP_PKG_PATH/curl" OPENSSLDIR="$BP_PKG_PATH/openssl" install)
 link_to_root
 verify /bin/git
